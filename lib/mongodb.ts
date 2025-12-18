@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/codewiki';
+const MONGODB_URI = process.env.MONGODB_URI ||
+    (process.env.NODE_ENV === 'production' ? '' : 'mongodb://localhost:27017/codewiki');
 
 if (!MONGODB_URI) {
     throw new Error(
-        'Please define the MONGODB_URI environment variable inside .env.local'
+        'Please define the MONGODB_URI environment variable inside Vercel Project Settings'
     );
 }
 

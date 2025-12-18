@@ -294,7 +294,7 @@ function AnalyzeContent() {
                                             <p className="text-sm">Gemini is analyzing logic...</p>
                                         </div>
                                     ) : (
-                                        <div className="prose max-w-4xl mx-auto pb-20">
+                                        <div className="prose max-w-4xl mx-auto pb-20 overflow-x-auto">
                                             <ReactMarkdown>{wikiContent}</ReactMarkdown>
                                         </div>
                                     )}

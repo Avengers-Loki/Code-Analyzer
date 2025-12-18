@@ -8,20 +8,27 @@
   --secondary: #64748b;
   --accent: #E95C88;
   --error: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-* {
+/* ---------------- RESET ---------------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
+/* ---------------- BASE ---------------- */
 html,
 body {
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  /* prevent page-level horizontal scroll */
   font-family: var(--font-sans);
   background: var(--background);
   color: var(--foreground);
@@ -33,16 +40,14 @@ a {
   text-decoration: none;
 }
 
-/* Utilities */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
+/* ---------------- FLEX FIX (CRITICAL) ---------------- */
 .flex {
   display: flex;
+}
+
+.flex>* {
+  min-width: 0;
+  /* REQUIRED for horizontal scrolling */
 }
 
 .flex-col {
@@ -69,20 +74,12 @@ a {
   justify-content: flex-end;
 }
 
-.gap-1\.5 {
-  gap: 0.375rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
-}
-
-.gap-4 {
-  gap: 1rem;
+/* ---------------- LAYOUT ---------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .w-full {
@@ -97,16 +94,8 @@ a {
   height: 100vh;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
 .flex-1 {
-  flex: 1;
+  flex: 1 1 0%;
 }
 
 .shrink-0 {
@@ -117,6 +106,7 @@ a {
   flex-grow: 1;
 }
 
+/* ---------------- SPACING ---------------- */
 .p-1 {
   padding: 0.25rem;
 }
@@ -187,6 +177,7 @@ a {
   margin-right: auto;
 }
 
+/* ---------------- BORDERS ---------------- */
 .border {
   border: 1px solid var(--border);
 }
@@ -231,12 +222,17 @@ a {
   border-radius: 9999px;
 }
 
+/* ---------------- TEXT ---------------- */
 .text-xs {
   font-size: 0.75rem;
 }
 
 .text-sm {
   font-size: 0.875rem;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .font-semibold {
@@ -247,16 +243,12 @@ a {
   font-weight: 700;
 }
 
-.font-medium {
-  font-weight: 500;
+.text-center {
+  text-align: center;
 }
 
 .uppercase {
   text-transform: uppercase;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
 }
 
 .truncate {
@@ -265,93 +257,11 @@ a {
   white-space: nowrap;
 }
 
-.italic {
-  font-style: italic;
-}
-
-.text-center {
-  text-align: center;
-}
-
+/* ---------------- COLORS ---------------- */
 .bg-transparent {
   background-color: transparent;
 }
 
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.inset-0 {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
-.overflow-x-auto {
-  overflow-x: auto;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.select-none {
-  user-select: none;
-}
-
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.transition-colors {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Ad-hoc colors classes to mimic Tailwind JIT */
 .bg-\[var\(--surface\)\] {
   background-color: var(--surface);
 }
@@ -372,49 +282,19 @@ a {
   color: var(--primary);
 }
 
-.text-\[var\(--text\)\] {
-  color: var(--foreground);
-}
-
-/* Helpers for specific layout needs */
-.h-14 {
-  height: 3.5rem;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
-
-.max-w-3xl {
-  max-width: 48rem;
-}
-
-.max-w-none {
-  max-width: none;
-}
-
-.max-w-[85%] {
-  max-width: 85%;
-}
-
+/* ---------------- BUTTONS ---------------- */
 .btn {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--foreground);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-  font-size: 0.875rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
@@ -424,23 +304,17 @@ a {
 
 .btn-primary {
   background: var(--primary);
-  color: #ffffff;
+  color: #fff;
   border-color: var(--primary);
 }
 
-.btn-primary:hover {
-  background: var(--primary-hover);
-  border-color: var(--primary-hover);
-}
-
+/* ---------------- INPUT ---------------- */
 .input {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--foreground);
+  width: 100%;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
-  width: 100%;
-  transition: border-color 0.2s;
+  border: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .input:focus {
@@ -449,36 +323,28 @@ a {
   box-shadow: 0 0 0 3px rgba(116, 86, 241, 0.2);
 }
 
+/* ---------------- CARD ---------------- */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Typography */
+/* ---------------- TYPOGRAPHY ---------------- */
 h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
   margin-bottom: 1rem;
-  color: var(--foreground);
 }
 
 h2 {
   font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
   margin-bottom: 0.75rem;
-  color: var(--foreground);
 }
 
 h3 {
   font-size: 1.25rem;
-  font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--foreground);
 }
 
 p {
@@ -486,57 +352,49 @@ p {
   color: var(--secondary);
 }
 
-code {
-  font-family: var(--font-mono);
-  background: #f1f5f9;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-size: 85%;
-  color: #d63384;
-}
-
-.max-w-4xl {
-  max-width: 56rem;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 99px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Markdown Elements */
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 2rem 0;
+/* ---------------- CODE & MARKDOWN (KEY FIX) ---------------- */
+main,
+.content,
+.viewer,
+.markdown,
+.markdown-body {
+  overflow-x: auto;
+  min-width: 0;
 }
 
 pre {
-  overflow-x: auto;
   max-width: 100%;
-  border-radius: 0.375rem;
+  overflow-x: auto;
+  white-space: pre;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #f8fafc;
 }
 
+code {
+  font-family: var(--font-mono);
+  white-space: pre;
+  color: #d63384;
+}
+
+/* ---------------- MEDIA ---------------- */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Animations */
+/* ---------------- SCROLLBAR ---------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -551,18 +409,4 @@ img {
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }

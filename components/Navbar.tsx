@@ -38,7 +38,7 @@ export default function Navbar() {
                         <div className="flex items-center gap-8">
                             <button
                                 onClick={handleLogout}
-                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors px-4 py-2"
+                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors bg-transparent border-none p-0"
                             >
                                 <LogOut size={24} />
                                 Sign Out
@@ -48,7 +48,7 @@ export default function Navbar() {
                         <div className="flex items-center gap-8">
                             <Link
                                 href="/signup"
-                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors px-4 py-2"
+                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors bg-transparent border-none p-0"
                             >
                                 <User size={24} />
                                 Sign Up

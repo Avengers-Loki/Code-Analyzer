@@ -37,9 +37,9 @@ export default function Navbar() {
                     {isLoggedIn ? (
                         <button
                             onClick={handleLogout}
-                            className="flex items-center gap-3 bg-white border border-gray-200 px-8 py-3 rounded-full text-base font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 active:scale-95 active:translate-y-0"
+                            className="group flex items-center gap-3 bg-white border-2 border-[var(--border)] px-9 py-3.5 rounded-full text-lg font-bold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-300 active:scale-95 active:translate-y-0"
                         >
-                            <LogOut size={18} className="text-gray-500 group-hover:text-gray-900 transition-colors" />
+                            <LogOut size={20} className="text-[var(--secondary)] group-hover:text-[var(--primary)] transition-colors" />
                             Sign Out
                         </button>
                     ) : (

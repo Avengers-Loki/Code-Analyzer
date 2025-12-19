@@ -438,7 +438,6 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
     }
 
     return (
-    return (
         <div className="select-none">
             <div
                 className={`flex items-center gap-1.5 px-2 py-0.5 rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-xs transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}

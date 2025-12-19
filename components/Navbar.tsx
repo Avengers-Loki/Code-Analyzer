@@ -37,20 +37,19 @@ export default function Navbar() {
                     {isLoggedIn ? (
                         <button
                             onClick={handleLogout}
-                            className="group flex items-center gap-3 bg-white border-2 border-[var(--border)] px-10 py-4 rounded-xl text-xl font-bold text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-300 active:scale-95 active:translate-y-0"
+                            className="flex items-center gap-3 text-xl font-bold text-[var(--secondary)] hover:text-[var(--foreground)] transition-colors px-4 py-2"
                         >
-                            <LogOut size={22} className="text-[var(--secondary)] group-hover:text-[var(--primary)] transition-colors" />
+                            <LogOut size={24} />
                             Sign Out
                         </button>
                     ) : (
                         <div className="flex items-center gap-8">
                             <Link
                                 href="/signup"
-                                className="relative group flex items-center gap-3 bg-gradient-to-r from-[var(--primary)] to-purple-600 text-white px-10 py-4 rounded-xl text-xl font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 active:scale-95 active:translate-y-0 overflow-hidden"
+                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors px-4 py-2"
                             >
-                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-xl" />
-                                <User size={22} className="relative z-10" />
-                                <span className="relative z-10">Sign Up</span>
+                                <User size={24} />
+                                Sign Up
                             </Link>
                         </div>
                     )}

@@ -15,11 +15,18 @@ export default function Home() {
         if (!repoUrl) return;
 
         // Extract owner/repo from URL or string
-        let path = repoUrl;
-        if (repoUrl.includes('github.com')) {
-            const url = new URL(repoUrl);
-            path = url.pathname.slice(1);
+        let path = repoUrl.trim();
+        if (path.includes('github.com')) {
+            try {
+                const urlStr = path.startsWith('http') ? path : `https://${path}`;
+                const url = new URL(urlStr);
+                path = url.pathname.slice(1);
+            } catch (e) {
+                // Fallback: simple string replacement
+                path = path.replace(/^(https?:\/\/)?(www\.)?github\.com\//, '');
+            }
         }
+        path = path.replace(/\/$/, ''); // Remove trailing slash
 
         // Check if user is logged in (token cookie exists)
         const isLoggedIn = document.cookie.includes('token=');

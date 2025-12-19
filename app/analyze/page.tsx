@@ -218,10 +218,12 @@ function AnalyzeContent() {
     return (
         <div className="flex flex-row h-[calc(100vh-4rem)] overflow-hidden w-full items-stretch">
             {/* Sidebar (Explorer) */}
-            <aside className="w-60 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
+            <aside className="w-56 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
                 <div className="px-4 py-3 border-b border-[var(--border)] select-none">
                     <h2 className="text-xs font-bold text-[var(--secondary)] uppercase tracking-wider">Explorer</h2>
-                    <p className="text-xs text-[var(--secondary)] truncate mt-1">{repo}</p>
+                    <p className="text-xs text-[var(--secondary)] truncate mt-1" title={repo || ''}>
+                        {repo?.replace(/^(https?:\/\/)?(www\.)?github\.com\//, '').replace(/\/$/, '')}
+                    </p>
                 </div>
 
                 {error && (

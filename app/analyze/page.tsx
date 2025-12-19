@@ -218,9 +218,9 @@ function AnalyzeContent() {
     return (
         <div className="flex flex-row h-[calc(100vh-4rem)] overflow-hidden w-full items-stretch">
             {/* Sidebar (Explorer) */}
-            <aside className="w-80 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
+            <aside className="w-72 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
                 <div className="p-4 border-b border-[var(--border)]">
-                    <h2 className="text-sm font-bold text-[var(--secondary)] uppercase tracking-wider">Explorer</h2>
+                    <h2 className="text-xs font-bold text-[var(--secondary)] uppercase tracking-wider">Explorer</h2>
                     <p className="text-xs text-[var(--secondary)] truncate mt-1">{repo}</p>
                 </div>
 
@@ -438,30 +438,30 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
     return (
         <div className="select-none">
             <div
-                className={`flex items-center gap-1.5 px-2 py-1.5 rounded-md hover:bg-[var(--surface-hover)] cursor-pointer text-sm transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
+                className={`flex items-center gap-2 px-2 py-1 rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-[13px] transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
                 onClick={() => node.type === 'dir' ? handleToggle() : onFileClick(node)}
-                style={{ paddingLeft: '0.5rem' }}
+                style={{ paddingLeft: '0.8rem' }}
             >
                 {node.type === 'dir' && (
                     <span className={`text-[var(--secondary)] transition-transform ${isOpen ? 'rotate-90' : ''}`}>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={12} />
                     </span>
                 )}
                 {/* Spacer if not dir */}
-                {node.type !== 'dir' && <span className="w-[14px]" />}
+                {node.type !== 'dir' && <span className="w-[12px]" />}
 
                 {node.type === 'dir' ? (
-                    <Folder size={16} className={isOpen ? "text-[var(--primary)]" : "text-[var(--secondary)]"} />
+                    <Folder size={14} className={isOpen ? "text-[var(--primary)]" : "text-[var(--secondary)]"} />
                 ) : (
-                    <FileCode size={16} className="text-[var(--secondary)]" />
+                    <FileCode size={14} className="text-[var(--secondary)]" />
                 )}
 
                 <span className="truncate flex-1">{node.name}</span>
-                {loading && <Loader2 size={12} className="animate-spin text-[var(--secondary)]" />}
+                {loading && <Loader2 size={10} className="animate-spin text-[var(--secondary)]" />}
             </div>
 
             {isOpen && (
-                <div className="pl-4 border-l border-[var(--border)] ml-3">
+                <div className="pl-3 border-l border-[var(--border)] ml-3.5">
                     {children.length > 0 ? (
                         <FileTree
                             nodes={children}
@@ -470,7 +470,7 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
                             fetchChildren={fetchChildren}
                         />
                     ) : (
-                        !loading && <div className="px-4 py-1 text-xs text-[var(--secondary)] italic">Empty</div>
+                        !loading && <div className="px-3 py-1 text-[11px] text-[var(--secondary)] italic">Empty</div>
                     )}
                 </div>
             )}

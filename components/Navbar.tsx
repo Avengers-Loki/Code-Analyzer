@@ -25,35 +25,47 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]/80 backdrop-blur-md h-32 flex items-center shrink-0 transition-all">
-            <div className="w-full max-w-[1920px] mx-auto px-10 flex items-center justify-between">
+        <nav className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur-md h-20 flex items-center shrink-0 transition-all">
+            <div className="w-full max-w-[1920px] mx-auto px-6 lg:px-12 flex items-center justify-between">
 
-                <Link href="/" className="flex items-center gap-4 text-3xl font-bold text-[var(--foreground)] hover:opacity-80 transition-opacity">
-                    <div className="bg-[var(--primary)]/10 p-2.5 rounded-xl">
-                        <Code className="text-[var(--primary)]" size={36} />
-                    </div>
-                    <span className="tracking-tight">Code<span className="text-[var(--primary)]">Wiki</span></span>
-                </Link>
-                <div className="flex items-center gap-10">
-                    <Link href="/" className="text-[var(--secondary)] hover:text-[var(--foreground)] text-lg font-medium transition-colors">
-                        Documentation
+                <div className="flex items-center gap-8">
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="bg-[var(--foreground)] text-[var(--background)] p-1.5 rounded-sm group-hover:bg-[var(--primary)] transition-colors">
+                            <Code size={24} />
+                        </div>
+                        <span className="text-2xl font-bold tracking-tight text-[var(--foreground)]">CodeWiki</span>
                     </Link>
 
+                    <div className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--secondary)]">
+                        <Link href="/" className="hover:text-[var(--primary)] transition-colors">Product</Link>
+                        <Link href="/" className="hover:text-[var(--primary)] transition-colors">Solutions</Link>
+                        <Link href="/" className="hover:text-[var(--primary)] transition-colors">Resources</Link>
+                        <Link href="/" className="hover:text-[var(--primary)] transition-colors">Pricing</Link>
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-6">
                     {isLoggedIn ? (
                         <button
                             onClick={handleLogout}
-                            className="flex items-center gap-2 bg-[var(--surface)] hover:bg-[var(--surface-hover)] border border-[var(--border)] px-6 py-3 rounded-full text-lg font-medium transition-all hover:shadow-sm active:scale-95"
+                            className="flex items-center gap-2 text-sm font-medium text-[var(--secondary)] hover:text-[var(--foreground)] transition-colors"
                         >
-                            <LogOut size={20} className="text-[var(--secondary)]" />
+                            <LogOut size={16} />
                             Sign Out
                         </button>
                     ) : (
-                        <div className="flex gap-6">
-                            <Link href="/login" className="text-[var(--secondary)] hover:text-[var(--primary)] px-5 py-3 text-lg font-medium transition-colors">
-                                Sign In
+                        <div className="flex items-center gap-4">
+                            <Link
+                                href="/login"
+                                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+                            >
+                                <div className="p-1"><User size={16} /></div>
+                                Log In
                             </Link>
-                            <Link href="/signup" className="flex items-center gap-2.5 bg-[var(--primary)] text-white px-8 py-3.5 rounded-full text-lg font-medium hover:brightness-110 hover:shadow-md transition-all active:scale-95">
-                                <User size={20} />
+                            <Link
+                                href="/signup"
+                                className="bg-[var(--primary)] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:brightness-110 shadow-sm hover:shadow-md transition-all active:scale-95"
+                            >
                                 Get Started
                             </Link>
                         </div>

@@ -3,11 +3,7 @@ import mongoose from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI ||
     (process.env.NODE_ENV === 'production' ? '' : 'mongodb://localhost:27017/codewiki');
 
-if (!MONGODB_URI) {
-    throw new Error(
-        'Please define the MONGODB_URI environment variable inside Vercel Project Settings'
-    );
-}
+
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -21,6 +17,10 @@ if (!cached) {
 }
 
 async function dbConnect() {
+    if (!MONGODB_URI) {
+        throw new Error('Please define the MONGODB_URI environment variable inside Vercel Project Settings');
+    }
+
     if (cached.conn) {
         return cached.conn;
     }

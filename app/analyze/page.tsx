@@ -218,7 +218,7 @@ function AnalyzeContent() {
     return (
         <div className="flex flex-row h-[calc(100vh-4rem)] overflow-hidden w-full items-stretch">
             {/* Sidebar (Explorer) */}
-            <aside className="w-48 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
+            <aside className="w-44 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
                 <div className="px-4 py-3 border-b border-[var(--border)] select-none">
                     <h2 className="text-xs font-bold text-[var(--secondary)] uppercase tracking-wider">Explorer</h2>
                     <p className="text-xs text-[var(--secondary)] truncate mt-1" title={repo || ''}>
@@ -440,7 +440,7 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
     return (
         <div className="select-none">
             <div
-                className={`flex items-center gap-1.5 px-2 py-0.5 rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-xs transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
+                className={`flex items-center gap-1.5 px-2 py-[2px] rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-[11px] transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
                 onClick={() => node.type === 'dir' ? handleToggle() : onFileClick(node)}
                 style={{ paddingLeft: '0.4rem' }}
             >
@@ -453,12 +453,12 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
                 {node.type !== 'dir' && <span className="w-[10px]" />}
 
                 {node.type === 'dir' ? (
-                    <Folder size={13} className={isOpen ? "text-[var(--primary)]" : "text-[var(--secondary)]"} />
+                    <Folder size={12} className={isOpen ? "text-amber-400" : "text-amber-400/70"} />
                 ) : (
-                    <FileCode size={13} className="text-[var(--secondary)]" />
+                    <FileCode size={12} className="text-blue-400/70" />
                 )}
 
-                <span className="truncate flex-1">{node.name}</span>
+                <span className="truncate flex-1 tracking-tight">{node.name}</span>
                 {loading && <Loader2 size={10} className="animate-spin text-[var(--secondary)]" />}
             </div>
 

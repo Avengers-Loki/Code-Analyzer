@@ -218,7 +218,7 @@ function AnalyzeContent() {
     return (
         <div className="flex flex-row h-[calc(100vh-4rem)] overflow-hidden w-full items-stretch">
             {/* Sidebar (Explorer) */}
-            <aside className="w-72 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
+            <aside className="w-64 shrink-0 border-r border-[var(--border)] bg-[var(--surface)] flex flex-col transition-all">
                 <div className="p-4 border-b border-[var(--border)]">
                     <h2 className="text-xs font-bold text-[var(--secondary)] uppercase tracking-wider">Explorer</h2>
                     <p className="text-xs text-[var(--secondary)] truncate mt-1">{repo}</p>
@@ -438,7 +438,7 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
     return (
         <div className="select-none">
             <div
-                className={`flex items-center gap-2 px-2 py-1 rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-[13px] transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
+                className={`flex items-center gap-2 px-2 py-0.5 rounded-sm hover:bg-[var(--surface-hover)] cursor-pointer text-[13px] transition-colors ${isOpen ? 'text-[var(--primary)]' : 'text-[var(--text)]'}`}
                 onClick={() => node.type === 'dir' ? handleToggle() : onFileClick(node)}
                 style={{ paddingLeft: '0.8rem' }}
             >
@@ -470,7 +470,7 @@ function FileTreeItem({ node, repo, onFileClick, fetchChildren }: {
                             fetchChildren={fetchChildren}
                         />
                     ) : (
-                        !loading && <div className="px-3 py-1 text-[11px] text-[var(--secondary)] italic">Empty</div>
+                        !loading && <div className="px-3 py-0.5 text-[11px] text-[var(--secondary)] italic">Empty</div>
                     )}
                 </div>
             )}

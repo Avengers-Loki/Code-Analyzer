@@ -38,9 +38,9 @@ export default function Navbar() {
                         <div className="flex items-center gap-8">
                             <button
                                 onClick={handleLogout}
-                                className="flex items-center gap-3 text-xl font-extrabold bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity bg-transparent border-none p-0"
+                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors bg-transparent border-none p-0"
                             >
-                                <LogOut size={24} className="text-pink-600" />
+                                <LogOut size={24} />
                                 Sign Out
                             </button>
                         </div>

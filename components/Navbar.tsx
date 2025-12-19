@@ -35,13 +35,15 @@ export default function Navbar() {
                 </Link>
                 <div className="flex items-center gap-10">
                     {isLoggedIn ? (
-                        <button
-                            onClick={handleLogout}
-                            className="flex items-center gap-3 text-xl font-bold text-[var(--secondary)] hover:text-[var(--foreground)] transition-colors px-4 py-2"
-                        >
-                            <LogOut size={24} />
-                            Sign Out
-                        </button>
+                        <div className="flex items-center gap-8">
+                            <button
+                                onClick={handleLogout}
+                                className="flex items-center gap-3 text-xl font-bold text-[var(--primary)] hover:text-purple-600 transition-colors px-4 py-2"
+                            >
+                                <LogOut size={24} />
+                                Sign Out
+                            </button>
+                        </div>
                     ) : (
                         <div className="flex items-center gap-8">
                             <Link

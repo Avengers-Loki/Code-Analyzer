@@ -44,9 +44,13 @@ export default function Navbar() {
                         </button>
                     ) : (
                         <div className="flex items-center gap-8">
-                            <Link href="/signup" className="flex items-center gap-3 bg-[var(--primary)] text-white px-8 py-3 rounded-full text-lg font-bold hover:brightness-110 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 active:translate-y-0">
-                                <User size={20} />
-                                Sign Up
+                            <Link
+                                href="/signup"
+                                className="relative group flex items-center gap-3 bg-gradient-to-r from-[var(--primary)] to-purple-600 text-white px-9 py-3.5 rounded-full text-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 active:scale-95 active:translate-y-0 overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full" />
+                                <User size={20} className="relative z-10" />
+                                <span className="relative z-10">Sign Up</span>
                             </Link>
                         </div>
                     )}

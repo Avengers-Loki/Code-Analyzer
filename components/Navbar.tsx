@@ -49,9 +49,9 @@ export default function Navbar() {
                         </button>
                     ) : (
                         <div className="flex items-center gap-8">
-                            <Link href="/login" className="flex items-center gap-3 bg-[var(--primary)] text-white px-8 py-3 rounded-full text-lg font-bold hover:brightness-110 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 active:translate-y-0">
+                            <Link href="/signup" className="flex items-center gap-3 bg-[var(--primary)] text-white px-8 py-3 rounded-full text-lg font-bold hover:brightness-110 hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 active:translate-y-0">
                                 <User size={20} />
-                                Sign In
+                                Sign Up
                             </Link>
                         </div>
                     )}

@@ -288,7 +288,7 @@ export default function LoginForm() {
                     </button>
 
                     <div style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.9rem', color: '#64748b' }}>
-                        Don't have an account yet? <Link href="/signup" style={{ color: '#7c5dfa', fontWeight: '500', textDecoration: 'none' }}>Sign up</Link>
+                        Don&apos;t have an account yet? <Link href="/signup" style={{ color: '#7c5dfa', fontWeight: '500', textDecoration: 'none' }}>Sign up</Link>
                     </div>
 
                 </form>

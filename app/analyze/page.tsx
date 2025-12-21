@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Folder, FileCode, ChevronRight, Book, Code, Loader2, AlertCircle, MessageSquare, Send, X } from 'lucide-react';
+import { Folder, FileCode, ChevronRight, Book, Code, Loader2, AlertCircle, MessageSquare, Send, X, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
 // Types
@@ -332,7 +332,7 @@ function AnalyzeContent() {
                                         <div className="flex flex-col items-center justify-center py-20 gap-4 text-[var(--secondary)] animate-pulse">
                                             <div className="h-2 w-32 bg-[var(--surface-hover)] rounded"></div>
                                             <div className="h-2 w-48 bg-[var(--surface-hover)] rounded"></div>
-                                            <p className="text-sm">Gemini is analyzing logic...</p>
+                                            <p className="text-sm">Codewiki is analyzing logic...</p>
                                         </div>
                                     ) : (
                                         <div className="prose max-w-4xl mx-auto pb-20 overflow-x-auto">
@@ -363,11 +363,11 @@ function AnalyzeContent() {
 
             {/* Chat Sidebar */}
             {isChatOpen && (
-                <aside className="w-96 shrink-0 border-l border-[var(--border)] bg-[var(--surface)] flex flex-col shadow-xl z-20 transition-all h-full max-h-full">
+                <aside className="w-80 shrink-0 border-l border-[var(--border)] bg-[var(--surface)] flex flex-col shadow-xl z-20 transition-all h-full max-h-full">
                     <div className="p-4 border-b border-[var(--border)] flex justify-between items-center bg-[var(--surface)]">
-                        <h2 className="font-semibold flex items-center gap-2"><MessageSquare size={16} className="text-[var(--primary)]" /> AI Assistant</h2>
+                        <h2 className="font-semibold flex items-center gap-2 text-lg"><Sparkles size={18} className="text-[var(--primary)]" /> AI Assistant</h2>
                         <button onClick={() => setIsChatOpen(false)} className="text-[var(--secondary)] hover:text-[var(--text)]">
-                            <X size={16} />
+                            <X size={20} />
                         </button>
                     </div>
 

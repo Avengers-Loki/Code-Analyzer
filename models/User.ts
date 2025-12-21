@@ -1,7 +1,14 @@
-
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true,
+    },
+    image: {
+        type: String,
+    },
     name: {
         type: String,
         required: [true, 'Please provide a name'],
@@ -15,7 +22,8 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Please provide a password'],
+        // Password is required if googleId is not present
+        required: function (this: any) { return !this.googleId; },
         minlength: [6, 'Password must be at least 6 characters'],
     },
     createdAt: {

@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/Navbar';
@@ -20,6 +21,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
+                <Script src="https://accounts.google.com/gsi/client" strategy="lazyOnload" />
                 <Navbar />
                 <main>{children}</main>
                 <Analytics />

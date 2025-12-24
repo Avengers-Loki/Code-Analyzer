@@ -14,7 +14,6 @@
 
 ---
 
-![CodeReviewX Banner](./docs/images/CodeReviewX_banner.png)
 
 </div>
 

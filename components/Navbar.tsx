@@ -4,8 +4,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import Image from 'next/image';
-import { LogOut, User } from 'lucide-react';
+import { Code, LogOut, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
@@ -29,14 +28,8 @@ export default function Navbar() {
         <nav className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]/80 backdrop-blur-md h-14 h-nav flex items-center shrink-0 transition-all">
             <div className="w-full max-w-[1920px] mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 text-lg font-bold text-[var(--foreground)] hover:opacity-80 transition-opacity">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/apple-touch-icon.png"
-                            alt="CodeReviewX Logo"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
+                    <div className="bg-[var(--primary)]/10 p-1.5 rounded-lg">
+                        <Code className="text-[var(--primary)]" size={18} />
                     </div>
                     <span className="tracking-tight">Code<span className="text-[var(--primary)]">ReviewX</span></span>
                 </Link>

@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 CodeWiki
+# 🚀 CodeReviewX
 
 ### Transform GitHub Repositories into Interactive AI-Powered Documentation
 
@@ -14,7 +14,7 @@
 
 ---
 
-![CodeWiki Banner](./docs/images/codewiki_banner.png)
+![CodeReviewX Banner](./docs/images/CodeReviewX_banner.png)
 
 </div>
 
@@ -22,15 +22,15 @@
 
 ## 📖 About
 
-**CodeWiki** is an intelligent code analysis platform that transforms any GitHub repository into comprehensive, interactive documentation. Powered by Google's Gemini AI, it provides instant code understanding, architectural insights, and intelligent Q&A capabilities.
+**CodeReviewX** is an intelligent code analysis platform that transforms any GitHub repository into comprehensive, interactive documentation. Powered by Google's Gemini AI, it provides instant code understanding, architectural insights, and intelligent Q&A capabilities.
 
-Whether you're onboarding to a new codebase, conducting code reviews, or documenting your projects, CodeWiki accelerates your workflow with AI-driven insights.
+Whether you're onboarding to a new codebase, conducting code reviews, or documenting your projects, CodeReviewX accelerates your workflow with AI-driven insights.
 
 ### 🎯 Live Preview
 
 <div align="center">
 
-![CodeWiki Application](./docs/images/app_homepage.png)
+![CodeReviewX Application](./docs/images/app_homepage.png)
 
 *↑ Clean, professional interface - Just paste a GitHub URL and get instant AI-powered analysis*
 
@@ -78,7 +78,7 @@ Whether you're onboarding to a new codebase, conducting code reviews, or documen
 
 ![Architecture Diagram](./docs/images/architecture_diagram.png)
 
-CodeWiki follows a modern, scalable architecture:
+CodeReviewX follows a modern, scalable architecture:
 
 ```
 ┌─────────────┐      ┌──────────────┐      ┌─────────────┐
@@ -112,7 +112,7 @@ CodeWiki follows a modern, scalable architecture:
 ## 🖼️ Screenshots
 
 ### Homepage - Simple & Elegant
-![CodeWiki Homepage](./docs/images/app_homepage.png)
+![CodeReviewX Homepage](./docs/images/app_homepage.png)
 
 *Clean landing page with instant GitHub repository search and feature showcase*
 
@@ -216,7 +216,7 @@ Code-Analyzer/
 ### MongoDB Setup
 
 1. Create a free MongoDB Atlas cluster at [mongodb.com](https://www.mongodb.com/cloud/atlas)
-2. Create a database named `codewiki`
+2. Create a database named `CodeReviewX`
 3. Add your connection string to `.env.local`
 
 ### Google AI Setup
@@ -414,7 +414,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - 📧 Email: [vvinayagam763@gmail.com](mailto:vvinayagam763@gmail.com)
 - 🐙 GitHub: [@Avengers-Loki](https://github.com/Avengers-Loki)
 - 🚀 Project: [Code-Analyzer](https://github.com/Avengers-Loki/Code-Analyzer)
-- 🌐 Live Demo: [CodeWiki](https://code-analyzer-drab.vercel.app/)
+- 🌐 Live Demo: [CodeReviewX](https://code-analyzer-drab.vercel.app/)
 
 ---
 

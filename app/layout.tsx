@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-    title: 'CodeWiki - AI Powered Code Analysis',
+    title: 'CodeReviewX - AI Powered Code Analysis',
     description: 'Understand any codebase in seconds.',
 };
 

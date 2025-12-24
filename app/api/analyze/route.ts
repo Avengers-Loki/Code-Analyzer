@@ -28,7 +28,7 @@ export async function POST(req: Request) {
             const usageCookie = cookieStore.get('codewiki_guest_usage');
             if (usageCookie) {
                 return NextResponse.json(
-                    { error: 'Free Usage Limit Reached. Please Sign In to continue using CodeWiki.' },
+                    { error: 'Free Usage Limit Reached. Please Sign In to continue using CodeReviewX.' },
                     { status: 403 }
                 );
             }

@@ -31,7 +31,7 @@ export default function Navbar() {
                     <div className="bg-[var(--primary)]/10 p-1.5 rounded-lg">
                         <Code className="text-[var(--primary)]" size={18} />
                     </div>
-                    <span className="tracking-tight">Code<span className="text-[var(--primary)]">Wiki</span></span>
+                    <span className="tracking-tight">Code<span className="text-[var(--primary)]">ReviewX</span></span>
                 </Link>
                 <div className="flex items-center gap-6">
                     {isLoggedIn ? (

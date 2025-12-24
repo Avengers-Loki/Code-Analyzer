@@ -176,7 +176,7 @@ CodeReviewX follows a modern, scalable architecture:
 ## 📦 Project Structure
 
 ```
-Code-Analyzer/
+CodeReviewX/
 ├── app/                      # Next.js App Router
 │   ├── api/                  # API routes
 │   │   ├── analyze/          # Repository analysis endpoint
@@ -413,7 +413,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 - 📧 Email: [vvinayagam763@gmail.com](mailto:vvinayagam763@gmail.com)
 - 🐙 GitHub: [@Avengers-Loki](https://github.com/Avengers-Loki)
-- 🚀 Project: [Code-Analyzer](https://github.com/Avengers-Loki/Code-Analyzer)
+- 🚀 Project: [CodeReviewX](https://github.com/Avengers-Loki/CodeReviewX)
 - 🌐 Live Demo: [CodeReviewX](https://codereviewx-drab.vercel.app/)
 
 ---
@@ -433,7 +433,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 If you have any questions or need help:
 
 - 📧 Email: vvinayagam763@gmail.com
-- 💬 [Open an issue](https://github.com/Avengers-Loki/Code-Analyzer/issues)
+- 💬 [Open an issue](https://github.com/Avengers-Loki/CodeReviewX/issues)
 - 📖 [Read the docs](#-features)
 
 ---

@@ -409,10 +409,12 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👨‍💻 Author
 
-**Vinayagamoorthi**
+**Vinayagamoorthi V**
 
-- GitHub: [@Avengers-Loki](https://github.com/Avengers-Loki)
-- Project: [Code-Analyzer](https://github.com/Avengers-Loki/Code-Analyzer)
+- 📧 Email: [vvinayagam763@gmail.com](mailto:vvinayagam763@gmail.com)
+- 🐙 GitHub: [@Avengers-Loki](https://github.com/Avengers-Loki)
+- 🚀 Project: [Code-Analyzer](https://github.com/Avengers-Loki/Code-Analyzer)
+- 🌐 Live Demo: [CodeWiki](https://code-analyzer-drab.vercel.app/)
 
 ---
 
@@ -440,6 +442,6 @@ If you have any questions or need help:
 
 ### ⭐ Star this repo if you find it helpful!
 
-Made with ❤️ and ☕ by Vinayagamoorthi
+Made with ❤️ and ☕ by Vinayagamoorthi V
 
 </div>

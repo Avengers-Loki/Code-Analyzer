@@ -10,7 +10,7 @@
 [![Google AI](https://img.shields.io/badge/Google_AI-Gemini-orange?style=for-the-badge&logo=google)](https://ai.google.dev/)
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](LICENSE)
 
-[🌐 Live Demo](https://code-analyzer-drab.vercel.app/) • [Documentation](#-features) • [Installation](#-installation) • [Contributing](#-contributing)
+[🌐 Live Demo](https://codereviewx-drab.vercel.app/) • [Documentation](#-features) • [Installation](#-installation) • [Contributing](#-contributing)
 
 ---
 
@@ -30,9 +30,9 @@ Whether you're onboarding to a new codebase, conducting code reviews, or documen
 
 <div align="center">
 
-![CodeReviewX Application](./docs/images/app_homepage.png)
+![CodeReviewX Application](./docs/images/homepage_updated.png)
 
-*↑ Clean, professional interface - Just paste a GitHub URL and get instant AI-powered analysis*
+*↑ CodeReviewX - Modern interface for instant GitHub repository analysis with AI-powered documentation*
 
 </div>
 
@@ -111,15 +111,15 @@ CodeReviewX follows a modern, scalable architecture:
 
 ## 🖼️ Screenshots
 
-### Homepage - Simple & Elegant
-![CodeReviewX Homepage](./docs/images/app_homepage.png)
+### Homepage - CodeReviewX Landing Page
+![CodeReviewX Homepage](./docs/images/homepage_updated.png)
 
-*Clean landing page with instant GitHub repository search and feature showcase*
+*Modern landing page featuring CodeReviewX branding, GitHub URL search, and key features (Instant Wikis, Code Explanation)*
 
-### Analysis Interface - Full Code View
-![Analysis Interface](./docs/images/analysis_interface.png)
+### Analysis Interface - AI-Powered Code Documentation
+![Analysis Interface](./docs/images/analysis_updated.png)
 
-*Complete analysis view showing file explorer (left), AI-generated documentation with syntax highlighting (center), and Wiki/Code toggle for different perspectives*
+*Interactive analysis view with file explorer, AI-generated documentation using syntax highlighting, and Wiki/Code toggle for different viewing modes*
 
 ---
 
@@ -414,7 +414,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - 📧 Email: [vvinayagam763@gmail.com](mailto:vvinayagam763@gmail.com)
 - 🐙 GitHub: [@Avengers-Loki](https://github.com/Avengers-Loki)
 - 🚀 Project: [Code-Analyzer](https://github.com/Avengers-Loki/Code-Analyzer)
-- 🌐 Live Demo: [CodeReviewX](https://code-analyzer-drab.vercel.app/)
+- 🌐 Live Demo: [CodeReviewX](https://codereviewx-drab.vercel.app/)
 
 ---
 

@@ -47,11 +47,11 @@ export default function Navbar() {
                     ) : (
                         <div className="flex items-center gap-6">
                             <Link
-                                href="/signup"
+                                href="/login"
                                 className="flex items-center gap-2 text-sm font-bold text-[var(--primary)] hover:text-purple-600 transition-colors bg-transparent border-none p-0"
                             >
                                 <User size={16} />
-                                Sign Up
+                                Login
                             </Link>
                         </div>
                     )}

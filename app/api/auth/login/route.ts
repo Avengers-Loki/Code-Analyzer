@@ -30,8 +30,11 @@ export async function POST(request: Request) {
         if (!user) {
             console.log('Login: User not found for email:', email);
             return NextResponse.json(
-                { error: 'Invalid credentials' },
-                { status: 400 }
+                {
+                    error: 'Account not found. Please create a new account.',
+                    userNotFound: true
+                },
+                { status: 404 }
             );
         }
 

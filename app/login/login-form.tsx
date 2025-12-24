@@ -93,6 +93,15 @@ export default function LoginForm() {
             const data = await res.json();
 
             if (!res.ok) {
+                // Check if user not found
+                if (data.userNotFound) {
+                    // Show message and redirect to signup after 2 seconds
+                    setError(data.error + ' Redirecting to signup...');
+                    setTimeout(() => {
+                        router.push(`/signup?email=${encodeURIComponent(formData.email)}`);
+                    }, 2000);
+                    return;
+                }
                 throw new Error(data.error || 'Something went wrong');
             }
 

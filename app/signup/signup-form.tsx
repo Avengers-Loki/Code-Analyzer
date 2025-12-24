@@ -16,6 +16,15 @@ export default function SignupForm() {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
+    // Pre-fill email from query parameter if present
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const emailParam = params.get('email');
+        if (emailParam) {
+            setFormData(prev => ({ ...prev, email: emailParam }));
+        }
+    }, []);
+
     useEffect(() => {
         const initializeGoogleLogin = () => {
             const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;

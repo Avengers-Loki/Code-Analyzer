@@ -32,7 +32,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const dryRun = '${{ github.event.inputs.dry_run }}' === 'true' || context.eventName === 'schedule';
+            const dryRun = '${{ github.event.inputs.dry_run }}' === 'true' || context.event_name === 'schedule';
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const protectedBranches = ['main', 'master'];
@@ -73,16 +73,17 @@ jobs:
                 }
                 
                 try {
-                  // Check if branch is merged
+                  // Check if branch is merged by comparing with default branch
+                  // A branch is considered merged if it has no commits ahead of the default branch
                   let isMerged = false;
                   try {
-                    await github.rest.repos.compareCommitsWithBasehead({
+                    const comparison = await github.rest.repos.compareCommitsWithBasehead({
                       owner: owner,
                       repo: repo,
                       basehead: `${defaultBranch}...${branchName}`
-                    }).then(comparison => {
-                      isMerged = comparison.data.behind_by === 0 && comparison.data.ahead_by === 0;
                     });
+                    // Branch is merged if it has no commits ahead of default branch
+                    isMerged = comparison.data.ahead_by === 0;
                   } catch (compareError) {
                     console.log(`⚠️  Could not compare branch ${branchName}: ${compareError.message}`);
                   }

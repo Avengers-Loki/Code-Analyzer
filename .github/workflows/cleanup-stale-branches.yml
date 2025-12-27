@@ -34,7 +34,7 @@ jobs:
           script: |
             // For scheduled runs, always use dry run mode for safety
             // For manual runs, respect the input parameter (default is 'true')
-            const isScheduled = context.eventName === 'schedule';
+            const isScheduled = '${{ github.event_name }}' === 'schedule';
             const dryRunInput = '${{ github.event.inputs.dry_run }}';
             const dryRun = isScheduled || (dryRunInput === '' || dryRunInput === 'true');
             const owner = context.repo.owner;
@@ -65,6 +65,9 @@ jobs:
               let deletedCount = 0;
               let skippedCount = 0;
               let errorCount = 0;
+              
+              // Note: For repositories with many branches (100+), consider implementing
+              // batch processing or pagination to avoid rate limits
               
               for (const branch of branches) {
                 const branchName = branch.name;

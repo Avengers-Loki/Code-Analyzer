@@ -4,6 +4,7 @@ on:
   push:
     branches: ["main"]
   pull_request:
+    branches: ["main"]
 
 jobs:
   build:
@@ -26,3 +27,4 @@ jobs:
 
       - name: Verify Build
         run: npm run build
+        continue-on-error: false

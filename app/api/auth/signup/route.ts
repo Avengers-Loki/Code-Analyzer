@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     } catch (error: any) {
         console.error('Signup error:', error);
         return NextResponse.json(
-            { error: 'Internal Server Error: ' + error.message },
+            { error: 'Internal Server Error' },
             { status: 500 }
         );
     }

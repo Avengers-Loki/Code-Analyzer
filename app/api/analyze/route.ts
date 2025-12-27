@@ -12,7 +12,11 @@ export async function POST(req: Request) {
         const token = cookieStore.get('token');
         let isAuthenticated = false;
 
-        const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
+        const JWT_SECRET = process.env.JWT_SECRET;
+
+        if (!JWT_SECRET) {
+            throw new Error('JWT_SECRET environment variable is required but not set');
+        }
 
         if (token) {
             try {

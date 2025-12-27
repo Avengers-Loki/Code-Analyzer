@@ -6,7 +6,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+    throw new Error('JWT_SECRET environment variable is required but not set');
+}
 
 
 export async function POST(request: Request) {
@@ -28,13 +32,12 @@ export async function POST(request: Request) {
         // Check for user
         const user = await User.findOne({ email });
         if (!user) {
-            console.log('Login: User not found for email:', email);
+            console.log('Login: Invalid credentials provided');
             return NextResponse.json(
                 {
-                    error: 'Account not found. Please create a new account.',
-                    userNotFound: true
+                    error: 'Invalid credentials'
                 },
-                { status: 404 }
+                { status: 401 }
             );
         }
 
@@ -72,7 +75,7 @@ export async function POST(request: Request) {
 
         // Set cookie
         response.cookies.set('token', token, {
-            httpOnly: false,
+            httpOnly: true, // Prevent XSS attacks by disabling JavaScript access
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
             maxAge: 60 * 60 * 24 * 30, // 30 days

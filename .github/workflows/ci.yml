@@ -27,4 +27,3 @@ jobs:
 
       - name: Verify Build
         run: npm run build
-        continue-on-error: false

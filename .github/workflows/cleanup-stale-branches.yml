@@ -34,9 +34,9 @@ jobs:
           script: |
             // For scheduled runs, always use dry run mode for safety
             // For manual runs, respect the input parameter (default is 'true')
-            const isScheduled = '${{ github.event_name }}' === 'schedule';
-            const dryRunInput = '${{ github.event.inputs.dry_run }}';
-            const dryRun = isScheduled || (dryRunInput === '' || dryRunInput === 'true');
+            const isScheduled = context.eventName === 'schedule';
+            const dryRunInput = '${{ github.event.inputs.dry_run }}' || 'true';
+            const dryRun = isScheduled || dryRunInput === 'true';
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const protectedBranches = ['main', 'master'];
@@ -44,12 +44,24 @@ jobs:
             console.log(`Running in ${dryRun ? 'DRY RUN' : 'LIVE'} mode`);
             
             try {
-              // Get all branches
-              const { data: branches } = await github.rest.repos.listBranches({
-                owner: owner,
-                repo: repo,
-                per_page: 100
-              });
+              // Get all branches (with pagination support)
+              const branches = [];
+              let page = 1;
+              const perPage = 100;
+              let hasMore = true;
+              
+              while (hasMore && branches.length < 500) { // Safety limit: 500 branches max
+                const { data: branchPage } = await github.rest.repos.listBranches({
+                  owner: owner,
+                  repo: repo,
+                  per_page: perPage,
+                  page: page
+                });
+                
+                branches.push(...branchPage);
+                hasMore = branchPage.length === perPage;
+                page++;
+              }
               
               console.log(`Found ${branches.length} branches`);
               

@@ -32,7 +32,8 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const dryRun = '${{ github.event.inputs.dry_run }}' === 'true' || context.event_name === 'schedule';
+            // For scheduled runs, always use dry run. For manual runs, respect the input (default to true)
+            const dryRun = context.eventName === 'schedule' || ('${{ github.event.inputs.dry_run }}' !== 'false');
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const protectedBranches = ['main', 'master'];

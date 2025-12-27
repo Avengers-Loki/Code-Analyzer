@@ -9,6 +9,8 @@ jobs:
   delete-branch:
     name: Delete Merged Branch
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
     
     steps:

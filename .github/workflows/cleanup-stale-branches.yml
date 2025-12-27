@@ -32,8 +32,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            // For scheduled runs, always use dry run. For manual runs, respect the input (default to true)
-            const dryRun = context.eventName === 'schedule' || ('${{ github.event.inputs.dry_run }}' !== 'false');
+            // For scheduled runs, always use dry run mode for safety
+            // For manual runs, respect the input parameter (default is 'true')
+            const isScheduled = context.eventName === 'schedule';
+            const dryRunInput = '${{ github.event.inputs.dry_run }}';
+            const dryRun = isScheduled || (dryRunInput === '' || dryRunInput === 'true');
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const protectedBranches = ['main', 'master'];
@@ -74,35 +77,41 @@ jobs:
                 }
                 
                 try {
-                  // Check if branch is merged by comparing with default branch
-                  // A branch is considered merged if it has no commits ahead of the default branch
-                  let isMerged = false;
+                  // Check if branch should be deleted
+                  // A branch is safe to delete if:
+                  // 1. It has no commits ahead of the default branch (ahead_by === 0)
+                  // 2. This means all its commits are already in the default branch (merged)
+                  let shouldDelete = false;
                   try {
                     const comparison = await github.rest.repos.compareCommitsWithBasehead({
                       owner: owner,
                       repo: repo,
                       basehead: `${defaultBranch}...${branchName}`
                     });
-                    // Branch is merged if it has no commits ahead of default branch
-                    isMerged = comparison.data.ahead_by === 0;
+                    // Branch is safe to delete if it has no unique commits
+                    shouldDelete = comparison.data.ahead_by === 0;
+                    
+                    if (shouldDelete) {
+                      console.log(`✓ Branch ${branchName} has no unique commits (ahead_by: ${comparison.data.ahead_by}, behind_by: ${comparison.data.behind_by})`);
+                    }
                   } catch (compareError) {
                     console.log(`⚠️  Could not compare branch ${branchName}: ${compareError.message}`);
                   }
                   
-                  if (isMerged) {
+                  if (shouldDelete) {
                     if (dryRun) {
-                      console.log(`🔍 [DRY RUN] Would delete merged branch: ${branchName}`);
+                      console.log(`🔍 [DRY RUN] Would delete branch: ${branchName}`);
                     } else {
                       await github.rest.git.deleteRef({
                         owner: owner,
                         repo: repo,
                         ref: `heads/${branchName}`
                       });
-                      console.log(`✅ Deleted merged branch: ${branchName}`);
+                      console.log(`✅ Deleted branch: ${branchName}`);
                       deletedCount++;
                     }
                   } else {
-                    console.log(`⏭️  Skipping unmerged branch: ${branchName}`);
+                    console.log(`⏭️  Skipping branch with unique commits: ${branchName}`);
                     skippedCount++;
                   }
                 } catch (error) {

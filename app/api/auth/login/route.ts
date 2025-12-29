@@ -11,12 +11,9 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
 
 export async function POST(request: Request) {
     try {
-        console.log('Login API hit');
         const { email, password } = await request.json();
-        console.log('Login attempt for:', email);
 
         if (!email || !password) {
-            console.log('Login missing fields');
             return NextResponse.json(
                 { error: 'Please provide email and password' },
                 { status: 400 }
@@ -28,7 +25,6 @@ export async function POST(request: Request) {
         // Check for user
         const user = await User.findOne({ email });
         if (!user) {
-            console.log('Login: User not found for email:', email);
             return NextResponse.json(
                 {
                     error: 'Account not found. Please create a new account.',
@@ -39,17 +35,14 @@ export async function POST(request: Request) {
         }
 
         // Check password
-        console.log('Login: User found, verifying password...');
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            console.log('Login: Password mismatch');
             return NextResponse.json(
                 { error: 'Invalid credentials' },
                 { status: 400 }
             );
         }
 
-        console.log('Login: Credentials valid, generating token...');
         // Create token
         const token = jwt.sign(
             { id: user._id, email: user.email, name: user.name },
@@ -79,7 +72,6 @@ export async function POST(request: Request) {
             path: '/',
         });
 
-        console.log('Login successful, cookie set');
         return response;
 
     } catch (error: any) {
